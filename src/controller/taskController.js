@@ -142,6 +142,7 @@ exports.postComment = async (req, res) => {
   try {
     let comment = req.body
     let createNew = await commentModel.create(comment)
+    let commentCount = await blogModel.updateOne({ _id: req.body.commentedOnPost }, { $inc: { commentCount : +1}})
     res.status(200).json({
       status: 1
     })
