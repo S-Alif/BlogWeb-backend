@@ -147,8 +147,7 @@ exports.postComment = async (req, res) => {
     let userCommentCount = await userModel.updateOne({ _id: findPostAuthor.author }, { $inc: { totalCommentCount: +1 } })
 
     res.status(200).json({
-      status: 1,
-      data: findPostAuthor, userCommentCount
+      status: 1
     })
 
   } catch (error) {
