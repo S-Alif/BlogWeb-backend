@@ -143,6 +143,9 @@ exports.postComment = async (req, res) => {
     let comment = req.body
     let createNew = await commentModel.create(comment)
     let commentCount = await blogModel.updateOne({ _id: req.body.commentedOnPost }, { $inc: { commentCount : +1}})
+    let findPostAuthor = await blogModel.findOne({ _id: req.body.commentedOnPost }).select("author")
+    let userCommentCount = await userModel.updateOne({ _id: findPostAuthor.author }, { $inc: { totalCommentCount: +1 } })
+
     res.status(200).json({
       status: 1
     })
