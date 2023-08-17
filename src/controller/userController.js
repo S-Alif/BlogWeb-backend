@@ -102,6 +102,7 @@ exports.verify_otp = async (req, res) => {
 
     if (verify == 1) {
       await otpModel.updateOne({ email: email, otp: otp, status: 0 }, { status: 1 })  //updating otp status
+      await userModel.updateOne({email: email, verified: 0}, {verified: 1})
       res.status(200).json({
         status: 1,
         data: "Verification success"
