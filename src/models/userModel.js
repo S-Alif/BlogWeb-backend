@@ -8,7 +8,8 @@ const userSchema = mongoose.Schema({
   pfp: { type: String, default: "https://placehold.co/800?text=Hello+World&font=roboto"},
   role:{type: String, default: "user"},
   totalReaction:{type:Number, default: 0},
-  totalCommentCount:{type:Number, default: 0}
+  totalCommentCount:{type:Number, default: 0},
+  verified: {type: Number, default: 0}
 }, {timestamps: true, versionKey: false})
 
 module.exports = mongoose.model('users', userSchema)
