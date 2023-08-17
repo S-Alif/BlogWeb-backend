@@ -6,7 +6,7 @@ const blogSchema = mongoose.Schema({
   category:{type: String, required: true},
   reactionCount:{type: Number, default: 0},
   commentCount:{type: Number, default: 0},
-  blogCoverImg: { type: String, default: "https://placehold.co/1920x1080?font=roboto"},
+  blogCoverImg: { type: String, default: "https://placehold.jp/c2c2c2/ffffff/1920x1080.png?text=blog%20cover"},
   author:{type: String}
 }, { timestamps: true, versionKey: false })
 
